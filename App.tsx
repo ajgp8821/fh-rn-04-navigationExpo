@@ -4,12 +4,14 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { StackNavigator } from './src/navigator/StackNavigator'
+import { BasicSideMenu } from './src/navigator/BasicSideMenu'
 
 export default function App() {
 	return (
 		// <View style={styles.container}>
 		<NavigationContainer>
-			<StackNavigator />
+			{/* <StackNavigator /> */}
+			<BasicSideMenu />
 			{/* <StatusBar style="auto" /> */}
 		</NavigationContainer>
 	)
