@@ -7,6 +7,7 @@ import * as ScreenOrientation from 'expo-screen-orientation'
 import { StackNavigator } from './src/navigator/StackNavigator'
 import { BasicSideMenu } from './src/navigator/BasicSideMenu'
 import { style } from './src/theme/appTheme'
+import { SideMenu } from './src/navigator/SideMenu'
 
 export default function App() {
 	// console.log(DefaultTheme)
@@ -22,7 +23,8 @@ export default function App() {
 			// theme={MyTheme}
 		>
 			{/* <StackNavigator /> */}
-			<BasicSideMenu />
+			{/* <BasicSideMenu /> */}
+			<SideMenu />
 			{/* <StatusBar style="auto" /> */}
 		</NavigationContainer>
 	)
