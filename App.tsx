@@ -8,6 +8,7 @@ import { StackNavigator } from './src/navigator/StackNavigator'
 import { BasicSideMenu } from './src/navigator/BasicSideMenu'
 import { style } from './src/theme/appTheme'
 import { SideMenu } from './src/navigator/SideMenu'
+import { Tabs } from './src/navigator/Tabs'
 
 export default function App() {
 	// console.log(DefaultTheme)
@@ -25,6 +26,7 @@ export default function App() {
 			{/* <StackNavigator /> */}
 			{/* <BasicSideMenu /> */}
 			<SideMenu />
+			{/* <Tabs /> */}
 			{/* <StatusBar style="auto" /> */}
 		</NavigationContainer>
 	)
