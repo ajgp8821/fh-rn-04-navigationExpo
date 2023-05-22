@@ -1,12 +1,13 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import Icon from 'react-native-vector-icons/Ionicons'
 import { ChatScreen } from '../screens/ChatScreen'
 import { ContactsScreen } from '../screens/ContactsScreen'
 import { AlbumsScreen } from '../screens/AlbumsScreen'
-
-import { LogBox, Text } from 'react-native'
+import { LogBox /*, Text*/ } from 'react-native'
 import { colors } from '../theme/appTheme'
+// import { useSafeAreaInsets } from 'react-native-safe-area-context'
+
 LogBox.ignoreLogs(['Sending'])
 // LogBox.ignoreLogs(['Sending `onAnimatedValueUpdate` with no listeners registered.',])
 
@@ -49,17 +50,18 @@ export const TopTabNavigator = () => {
 					let iconName = ''
 					switch (route.name) {
 					case 'ChatScreen':
-						iconName = 'CH'
+						iconName = 'chatbox-ellipses'
 						break
 					case 'ContactsScreen':
-						iconName = 'CO'
+						iconName = 'people'
 						break
 					case 'AlbumsScreen':
-						iconName = 'AL'
+						iconName = 'images'
 						break
 					}
           
-					return <Text style={{color}}>{iconName}</Text>
+					// return <Text style={{color}}>{iconName}</Text>
+					return <Icon name={iconName} size={23} color={focused ? colors.primary : color} />
 				}
 			})}
 		>

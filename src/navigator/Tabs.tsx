@@ -1,8 +1,9 @@
 import React from 'react'
 import { Platform, Text } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Tab1Screen } from '../screens/Tab1Screen'
-import { Tab2Screen } from '../screens/Tab2Screen'
+// import { Tab2Screen } from '../screens/Tab2Screen'
 // import { Tab3Screen } from '../screens/Tab3Screen'
 import { StackNavigator } from './StackNavigator'
 import { colors } from '../theme/appTheme'
@@ -44,24 +45,26 @@ const TabsAndroid = () => {
 				},
 				tabBarIcon: ({color, focused}) => {
 					// console.log(route)
-
+					
 					let iconName = ''
 					switch (route.name) {
 					case 'Tab1Screen':
-						iconName = 'T1'
+						iconName = 'grid'
 						break
 					case 'Tab2Screen':
-						iconName = 'T2'
+						iconName = 'cube'
 						break
 					case 'StackNavigator':
-						iconName = 'T3'
+						iconName = 'document'
 						break
 					case 'TopTabNavigator':
-						iconName = 'TN'
+						iconName = 'cube'
 						break
 					}
-          
-					return <Text style={{color}}>{iconName}</Text>
+					// console.log('focused', iconName + ' ' +focused)
+					// return <Text style={{color}}>{iconName}</Text>
+					// return <Icon name={focused ? iconName: iconName + '-outline'} size={23} color={focused ? colors.primary : color} />
+					return <Icon name={focused ? iconName: iconName + '-outline'} size={23} color={color} />
 				}
 			})}
 		>
@@ -81,6 +84,7 @@ const TabsIOS = () => {
 				backgroundColor: 'white'
 			}}
 			screenOptions={ ({route}) => ({
+				headerShown: false,
 				tabBarActiveTintColor: colors.primary,
 				tabBarStyle: {
 					borderTopColor: colors.primary,
@@ -96,20 +100,23 @@ const TabsIOS = () => {
 					let iconName = ''
 					switch (route.name) {
 					case 'Tab1Screen':
-						iconName = 'T1'
+						iconName = 'grid'
 						break
 					case 'Tab2Screen':
-						iconName = 'T2'
+						iconName = 'cube'
 						break
 					case 'StackNavigator':
-						iconName = 'T3'
+						iconName = 'document'
 						break
 					case 'TopTabNavigator':
-						iconName = 'TN'
+						iconName = 'cube'
 						break
 					}
-          
-					return <Text style={{color}}>{iconName}</Text>
+            
+					// return <Text style={{color}}>{iconName}</Text>
+					// return <Text style={{color}}>{iconName}</Text>
+					// return <Icon name={focused ? iconName: iconName + '-outline'} size={23} color={focused ? colors.primary : color} />
+					return <Icon name={focused ? iconName: iconName + '-outline'} size={23} color={color} />
 				}
 			})}
 		>

@@ -1,10 +1,12 @@
 import React from 'react'
-import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavigator } from '@react-navigation/drawer'
-import { StackNavigator } from './StackNavigator'
+import { DrawerContentComponentProps, DrawerContentScrollView, DrawerScreenProps, createDrawerNavigator } from '@react-navigation/drawer'
+import Icon from 'react-native-vector-icons/Ionicons'
 import { SettingsScreen } from '../screens/SettingsScreen'
-import { Dimensions, Image, ScaledSize, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native'
-import { style } from '../theme/appTheme'
+import { colors, style } from '../theme/appTheme'
+import { Image, Text, TouchableOpacity, View, useWindowDimensions/*, ScaledSize, Dimensions*/ } from 'react-native'
 import { Tabs } from './Tabs'
+import { DrawerActions } from '@react-navigation/native'
+// import { StackNavigator } from './StackNavigator'
 // import { createStackNavigator } from '@react-navigation/stack'
 
 const Drawer = createDrawerNavigator()
@@ -28,16 +30,28 @@ export const SideMenu = () => {
   
 	return (
 		<Drawer.Navigator
-			screenOptions={{
+			screenOptions={({navigation}) => ({
 				// drawerPosition:'right'
 				drawerType: width >= 768 ? 'permanent' : 'front', // Horizontal mode menu
-				// headerShown: false  // Hide the hamburger icon
-			}}
+				// headerShown: false,  // Hide the hamburger icon
+				headerLeft: () => (
+					// Change menu icon
+					<TouchableOpacity
+						style={{
+							marginLeft: 20,
+						}}
+						onPress={ () => navigation.dispatch(DrawerActions.toggleDrawer()) }
+					>
+						<Icon name='menu-outline' size={23} color={colors.primary} />
+					</TouchableOpacity>
+				)
+			})}
 			// initialRouteName='Tabs'
 			drawerContent={(props) => <InternalMenu {...props}/>}
 		>
 			<Drawer.Screen name="Tabs" component={Tabs} />
 			<Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
+			{/* <Drawer.Screen name="SettingsScreen" component={SettingsStackScreen} /> */}
 		</Drawer.Navigator>
 	)
 }
@@ -58,17 +72,25 @@ const InternalMenu = ({navigation}: DrawerContentComponentProps) => {
 			{/* Menu Options */}
 			<View style={style.menuOptions}>
 				<TouchableOpacity 
-					style= {style.menuBtn}
+					style= {{
+						...style.menuBtn,
+						flexDirection: 'row'
+					}}
 					onPress={() => navigation.navigate('Tabs')}
 				>
-					<Text style={style.menuText}>Navigation</Text>
+					<Icon name='compass-outline' size={23} color='grey' />
+					<Text style={style.menuText}> Navigation</Text>
 				</TouchableOpacity>
 
 				<TouchableOpacity 
-					style= {style.menuBtn}
+					style= {{
+						...style.menuBtn,
+						flexDirection: 'row'
+					}}
 					onPress={() => navigation.navigate('SettingsScreen')}
 				>
-					<Text style={style.menuText}>Settings</Text>
+					<Icon name='settings-outline' size={23} color='grey' />
+					<Text style={style.menuText}> Settings</Text>
 				</TouchableOpacity>
 			</View>
 		</DrawerContentScrollView>

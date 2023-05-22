@@ -1,14 +1,14 @@
 import 'react-native-gesture-handler'
 import React, { useEffect } from 'react'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { NavigationContainer /*, DefaultTheme*/ } from '@react-navigation/native'
 import * as ScreenOrientation from 'expo-screen-orientation'
-import { StackNavigator } from './src/navigator/StackNavigator'
-import { BasicSideMenu } from './src/navigator/BasicSideMenu'
-import { style } from './src/theme/appTheme'
 import { SideMenu } from './src/navigator/SideMenu'
-import { Tabs } from './src/navigator/Tabs'
+// import { StatusBar } from 'expo-status-bar'
+// import { StyleSheet, Text, View } from 'react-native'
+// import { StackNavigator } from './src/navigator/StackNavigator'
+// import { BasicSideMenu } from './src/navigator/BasicSideMenu'
+// import { style } from './src/theme/appTheme'
+// import { Tabs } from './src/navigator/Tabs'
 
 export default function App() {
 	// console.log(DefaultTheme)
@@ -32,17 +32,17 @@ export default function App() {
 	)
 }
 
-const MyTheme = {
-	dark: false,
-	colors: {
-		primary: 'rgb(255, 45, 85)',
-		background: 'rgb(242, 242, 242)',
-		card: 'rgb(200, 200, 200)',
-		text: 'rgb(28, 28, 30)',
-		border: 'rgb(199, 199, 204)',
-		notification: 'rgb(255, 69, 58)',
-	},
-}
+// const MyTheme = {
+// 	dark: false,
+// 	colors: {
+// 		primary: 'rgb(255, 45, 85)',
+// 		background: 'rgb(242, 242, 242)',
+// 		card: 'rgb(200, 200, 200)',
+// 		text: 'rgb(28, 28, 30)',
+// 		border: 'rgb(199, 199, 204)',
+// 		notification: 'rgb(255, 69, 58)',
+// 	},
+// }
 
 // const styles = StyleSheet.create({
 // 	container: {
