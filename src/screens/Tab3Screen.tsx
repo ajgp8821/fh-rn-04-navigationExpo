@@ -4,7 +4,7 @@ import { Text, View } from 'react-native'
 export const Tab3Screen = () => {
 
 	useEffect(() => {
-		console.log('Tab3Screen mounted')
+		// console.log('Tab3Screen mounted')
 	}, [])
 
 	return (

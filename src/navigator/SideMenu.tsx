@@ -33,6 +33,7 @@ export const SideMenu = () => {
 				drawerType: width >= 768 ? 'permanent' : 'front', // Horizontal mode menu
 				// headerShown: false  // Hide the hamburger icon
 			}}
+			// initialRouteName='Tabs'
 			drawerContent={(props) => <InternalMenu {...props}/>}
 		>
 			<Drawer.Screen name="Tabs" component={Tabs} />
