@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { NavigationContainer /*, DefaultTheme*/ } from '@react-navigation/native'
 import * as ScreenOrientation from 'expo-screen-orientation'
 import { SideMenu } from './src/navigator/SideMenu'
+import { AuthProvider } from './src/context/AuthContext'
 // import { StatusBar } from 'expo-status-bar'
 // import { StyleSheet, Text, View } from 'react-native'
 // import { StackNavigator } from './src/navigator/StackNavigator'
@@ -23,12 +24,23 @@ export default function App() {
 		<NavigationContainer
 			// theme={MyTheme}
 		>
-			{/* <StackNavigator /> */}
-			{/* <BasicSideMenu /> */}
-			<SideMenu />
-			{/* <Tabs /> */}
-			{/* <StatusBar style="auto" /> */}
+			<AppState>
+				{/* <StackNavigator /> */}
+				{/* <BasicSideMenu /> */}
+				<SideMenu />
+				{/* <Tabs /> */}
+				{/* <StatusBar style="auto" /> */}
+			</AppState>
 		</NavigationContainer>
+	)
+}
+
+// const AppState = ({children}: {children: JSX.Element[]}) => {
+const AppState = ({children}: any) => {
+	return (
+		<AuthProvider>
+			{children}
+		</AuthProvider>
 	)
 }
 
