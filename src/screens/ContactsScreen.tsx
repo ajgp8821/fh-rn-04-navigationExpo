@@ -10,10 +10,11 @@ export const ContactsScreen = () => {
 	return (
 		<View style={style.globalMargin}>
 			<Text style={style.title}>
-				{
-					!authState.isLoggedIn && <Button title='SignIn' onPress={signIn} />
-				}
+        ContactScreen
 			</Text>
+			{
+				!authState.isLoggedIn && <Button title='SignIn' onPress={signIn} />
+			}
 		</View>
 	)
 }
